@@ -23,9 +23,9 @@ function validateInput(testInput) {
     if (testInput === ""){
         return "Empty"
     } else if (isNaN(testInput)){
-        return "Not a number"
+        return "Not a Number"
     } else {
-        return "Is a number"
+        return "Is a Number"
     }
    
 }
@@ -41,6 +41,7 @@ function formSubmission(document, list, pilot, copilot, fuelLevel, cargoLevel) {
     let copilotStatus = document.getElementById('copilotStatus')
     let fuelStatus = document.getElementById('fuelStatus')
     let cargoStatus = document.getElementById('cargoStatus')
+    let launchStatus = document.getElementById('launchStatus')
 
     pilotStatus.innerHTML = `Pilot ${pilot} is ready for launch`;
     copilotStatus.innerHTML = `Co-pilot ${copilot} is ready for launch`;
