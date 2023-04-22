@@ -40,8 +40,36 @@ function formSubmission(document, list, pilot, copilot, fuelLevel, cargoLevel) {
     let fuelStatus = document.getElementById('fuelStatus')
     let cargoStatus = document.getElementById('cargoStatus')
 
+    pilotStatus.innerHTML = `Pilot ${pilot} is ready for launch`;
+    copilotStatus.innerHTML = `Co-pilot ${copilot} is ready for launch`;
+
+    if (parseInt(fuelLevel) < 10000 || parseInt(cargoLevel) > 10000) {
+            
+        if (parseInt(fuelLevel) < 10000) {
+            fuelStatus.innerHTML = "Need more fuel to launch";
+        } else {
+            fuelStatus.innerHTML = "Fuel level is ready for launch";
+        }
+
+        if (parseInt(cargoLevel) > 10000) {
+            cargoStatus.innerHTML = "Cargo mass too heavy for launch";
+        } else {
+            cargoStatus.innerHTML = "Cargo mass low enough for launch";
+        }
+        launchStatus.innerHTML = "Shuttle Not Ready for Launch";
+        launchStatus.style.color = "red";
+        } else {
+        launchStatus.innerHTML = "Shuttle is Ready for Launch"
+        launchStatus.style.color = "green";
+        fuelStatus.innerHTML = "Fuel level is ready for launch";
+        cargoStatus.innerHTML = "Cargo mass low enough for launch";
+    }
+
+    list.style.visibility = "visible";
+    }
+
    }
-}
+
 
 async function myFetch() {
     let planetsReturned;
